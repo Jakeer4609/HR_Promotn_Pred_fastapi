@@ -6,7 +6,6 @@ COPY . /app
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-EXPOSE $PORT
+EXPOSE 80
 
-CMD exec uvicorn model_app:app --port=$PORT --host=0.0.0.0
-
+ENTRYPOINT ["uvicorn", "model_app:app", "--host", "0.0.0.0", "--port", "80"]
